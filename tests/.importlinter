@@ -1,0 +1,15 @@
+[importlinter]
+root_package = tests
+include_external_packages=True
+contract_types=
+    forbid_external_packages: importlinter_forbid_external_packages.Contract
+
+[importlinter:contract:test]
+name = Test the contract type
+type = forbid_external_packages
+source_modules =
+    tests.example.*
+ignore_imports =
+    # Expected findings:
+    tests.example.imports_external -> importlinter
+    tests.example.imports_external -> pytest

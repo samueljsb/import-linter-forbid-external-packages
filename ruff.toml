@@ -1,0 +1,44 @@
+[format]
+quote-style = "single"
+
+[lint]
+select = ["ALL"]
+ignore = [  # pragma: alphabetize
+    "COM812", "E501", "ISC001",  # conflicts with formatter
+    "CPY001",  # this project is licensed and doesn't need copyright notices
+    "D",  # docstring linting is annoying
+    "EM101", "TRY003",  # disallows messages on exceptions
+    "FIX002",  # disallows TODO comments -- we allow these with issue links
+    "ISC003",  # bad advice -- requires implicit string concatenation
+    "N818",  # requires Hungarian notation for exceptions
+    "PLR09",  # "too many..." -- annoying
+    "PYI025",  # `import Set as AbstractSet` -- unnecessary
+    "RET505",  # `else` after `return` -- annoying
+    "SIM108",  # requires ternary expressions
+    "TD002",  # requires authors on TODO comments -- we require ticket links
+]
+
+[lint.flake8-quotes]
+inline-quotes = "single"
+
+[lint.flake8-tidy-imports.banned-api]
+"unittest.mock.patch".msg = "Considering allowing dependencies to be injected."
+
+[lint.flake8-type-checking]
+strict = true
+
+[lint.isort]
+force-single-line = true
+lines-after-imports = 2
+required-imports = [
+    "from __future__ import annotations",
+]
+
+[lint.per-file-ignores]
+"tests/*.py" = [  # pragma: alphabetize
+    "PLR2004",  # allow comparison to values
+    "S101",  # allow `assert`
+]
+"tests/example/*.py" = [
+    "F401",  # this package is all unused imports
+]
