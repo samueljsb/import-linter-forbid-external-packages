@@ -1,0 +1,22 @@
+[run]
+branch = true
+core = ctrace
+source_pkgs =
+    importlinter_forbid_external_packages
+    tests
+
+[report]
+fail_under = 100
+show_missing = true
+skip_covered = true
+skip_empty = true
+exclude_also =
+    case _ as unreachable:
+    assert_never\(.*?\)
+omit =
+    # The example project is never imported
+    tests/example/*.py
+
+[paths]
+source = src/
+    .tox/py*/lib/python*/site-packages/

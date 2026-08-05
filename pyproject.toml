@@ -1,0 +1,64 @@
+[project]
+name = "import_linter_forbid_external_packages"
+version = "0.0.1"
+authors = [
+    {name = "Samuel Searles-Bryant", email = "sam@samueljsb.co.uk"},
+]
+description = "contract type for import-linter that forbids access to non-stdlib packages"
+readme = "README.md"
+license = "BSD-3-Clause"
+license-files = ["LICENSE"]
+classifiers = [  # pragma: alphabetize
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Programming Language :: Python :: 3.15",
+]
+
+requires-python = ">=3.11"
+dependencies = [  # pragma: alphabetize
+    "import-linter",
+]
+
+[project.urls]
+Source = "https://github.com/samueljsb/import-linter-forbid-external-packages"
+Changelog = "https://github.com/samueljsb/import-linter-forbid-external-packages/blob/main/CHANGELOG.md"
+
+
+# Packaging
+# ---------
+
+[build-system]
+requires = ["setuptools>=77.0.3"]
+build-backend = "setuptools.build_meta"
+
+
+# Development
+# -----------
+
+[dependency-groups]
+dev = [
+    {include-group = "coverage"},
+    {include-group = "mypy"},
+    {include-group = "tests"},
+    {include-group = "test_runners"},
+    "pre-commit",
+]
+
+coverage = [
+    "coverage",
+]
+mypy = [
+    {include-group = "tests"},
+    "mypy",
+]
+tests = [
+    "pytest",
+]
+test_runners = [
+    "tox",
+    "tox-uv",
+]

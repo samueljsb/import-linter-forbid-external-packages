@@ -1,0 +1,10 @@
+# Python byte-code
+__pycache__/
+
+# Distribution / packaging
+build/
+*.egg-info/
+
+# Testing
+.coverage*
+!.coveragerc
